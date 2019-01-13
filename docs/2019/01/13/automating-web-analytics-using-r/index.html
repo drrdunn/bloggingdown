@@ -11,7 +11,7 @@
 
 
 
-
+  
 
 
 
@@ -22,7 +22,7 @@
 
 <link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 
 <link rel="stylesheet" href="/bloggingdown/css/fonts.css" media="all">
 <link rel="stylesheet" href="/bloggingdown/css/main.css" media="all">
@@ -44,16 +44,16 @@
   </a>
 
   <ul class="nav-links">
-
+    
     <li><a href=""><i class='fab fa-linkedin-in fa-lg'></i> </a>
 </li>
-
+    
     <li><a href="https://twitter.com/rimadunn404"><i class='fab fa-twitter fa-lg'></i> </a>
 </li>
-
+    
     <li><a href="/bloggingdown/about/"> About</a>
 </li>
-
+    
   </ul>
 </nav>
 
@@ -63,32 +63,37 @@
 <main class="content" role="main">
 
   <article class="article">
-
+    
     <span class="article-duration">2 min read</span>
-
+    
 
     <h1 class="article-title">Automating Web Analytics Using R</h1>
 
-
+    
     <span class="article-date">2019/01/13</span>
-
+    
 
     <div class="article-content">
-
+      
 
 
 <div id="about-this-note" class="section level3">
 <h3>About this note</h3>
 <ol style="list-style-type: decimal">
 <li>Using googleAnalyticR package.</li>
-<li>Setting up.</li>
+<li><a href="#test1">Setting up.</a>
+<ol style="list-style-type: decimal">
+<li>Install packages</li>
+<li>Authorise GA</li>
+<li>Pull data</li>
+</ol></li>
 <li><a href="#test2">Data analysis.</a></li>
 <li>References.</li>
 </ol>
 </div>
 <div id="setting-up" class="section level2">
 <h2>Setting up</h2>
-<div id="install-the-following-r-packages" class="section level3">
+<div id="test1" class="section level3">
 <h3>1 Install the following R packages</h3>
 <pre class="r"><code># Install the following R packages for easier data pulling and wrangling.
 
@@ -104,9 +109,9 @@
 </div>
 <div id="set-the-view-id-and-the-date-range" class="section level3">
 <h3>1.2 Set the view ID and the date range</h3>
-<pre class="r"><code># call and just replace that with a hardcoded value for the view ID.
+<pre class="r"><code># call and just replace that with a hardcoded value for the view ID. 
 # and the start and end date are currently set to choose the last 30 days, but can be hardcoded as well
-
+ 
 view_id &lt;- Sys.getenv(&quot;GA_VIEW_ID&quot;)
 start_date &lt;- Sys.Date() - 31        # 30 days back from yesterday
 end_date &lt;- Sys.Date() - 1           # Yesterday</code></pre>
@@ -122,9 +127,9 @@ ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached 
 </div>
 <div id="pulling-data" class="section level3">
 <h3>3 Pulling data</h3>
-<pre class="r"><code># for additional parameters, see ?google_analytics_4()
+<pre class="r"><code># for additional parameters, see ?google_analytics_4() 
 # anti_sample = TRUE will ensure we don&#39;t get sampled data
-
+ 
 ga_data &lt;- google_analytics(viewId = view_id,
 +                             date_range = c(start_date, end_date),
 +                             metrics = &quot;sessions&quot;,
@@ -144,7 +149,7 @@ head(ga_data)</code></pre>
     </div>
   </article>
 
-
+  
 
 
 </main>
@@ -161,7 +166,7 @@ head(ga_data)</code></pre>
       </footer>
 
     </div>
-
+    
 
 
 
@@ -175,8 +180,9 @@ head(ga_data)</code></pre>
 
 
 
+    
 
-
-
+    
   </body>
 </html>
+

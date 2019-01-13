@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Web Analytics on User research and data science</title>
-    <link>/bloggingdown/tags/web-analytics/</link>
+    <link>https://drrdunn.github.io/bloggingdown/tags/web-analytics/</link>
     <description>Recent content in Web Analytics on User research and data science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <lastBuildDate>Sun, 13 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/bloggingdown/tags/web-analytics/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://drrdunn.github.io/bloggingdown/tags/web-analytics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Automating Web Analytics Using R</title>
-      <link>/bloggingdown/2019/01/13/automating-web-analytics-using-r/</link>
+      <link>https://drrdunn.github.io/bloggingdown/2019/01/13/automating-web-analytics-using-r/</link>
       <pubDate>Sun, 13 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/bloggingdown/2019/01/13/automating-web-analytics-using-r/</guid>
-      <description>About this note Using googleAnalyticR package. Setting up. Data analysis. References.   Setting up 1 Install the following R packages # Install the following R packages for easier data pulling and wrangling. &amp;quot;googleAnalyticsR&amp;quot; # to get GA data &amp;quot;tidyverse&amp;quot; # must have, includes dplyr, ggplot2, and others &amp;quot;devtools&amp;quot; # generally useful &amp;quot;stringr&amp;quot; # handy string functions &amp;quot;lubridate&amp;quot; # handy date and time functions &amp;quot;googleVis&amp;quot; # useful for some visualizations &amp;quot;ggthemes&amp;quot; # pretty plot themes &amp;quot;ggrepel&amp;quot; # non-obstructive plot labels &amp;quot;scales&amp;quot; # custom plot scales  1.</description>
+      <guid>https://drrdunn.github.io/bloggingdown/2019/01/13/automating-web-analytics-using-r/</guid>
+      <description>About this note Using googleAnalyticR package. Setting up. Install packages Authorise GA Pull data  Data analysis. References.   Setting up 1 Install the following R packages # Install the following R packages for easier data pulling and wrangling. &amp;quot;googleAnalyticsR&amp;quot; # to get GA data &amp;quot;tidyverse&amp;quot; # must have, includes dplyr, ggplot2, and others &amp;quot;devtools&amp;quot; # generally useful &amp;quot;stringr&amp;quot; # handy string functions &amp;quot;lubridate&amp;quot; # handy date and time functions &amp;quot;googleVis&amp;quot; # useful for some visualizations &amp;quot;ggthemes&amp;quot; # pretty plot themes &amp;quot;ggrepel&amp;quot; # non-obstructive plot labels &amp;quot;scales&amp;quot; # custom plot scales  1.</description>
     </item>
     
   </channel>

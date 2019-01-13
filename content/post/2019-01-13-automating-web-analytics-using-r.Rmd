@@ -9,13 +9,16 @@ tags: [web analytics]
 
 ### About this note 
 1.  Using googleAnalyticR package.
-2.  Setting up.
+2.  [Setting up.](#test1)
+      1.  Install packages
+      2.  Authorise GA
+      3.  Pull data
 3.  [Data analysis.](#test2)
 4.  References.
 
 ## Setting up 
  
-### 1 Install the following R packages
+### 1 Install the following R packages {#test1}
  
 ```r
 # Install the following R packages for easier data pulling and wrangling.
@@ -41,7 +44,7 @@ view_id <- Sys.getenv("GA_VIEW_ID")
 start_date <- Sys.Date() - 31        # 30 days back from yesterday
 end_date <- Sys.Date() - 1           # Yesterday
 ```
-### 2 Authorise GA
+### 2 Authorise GA 
  
 ```r
 # will pop over to browser to give authenticate.
