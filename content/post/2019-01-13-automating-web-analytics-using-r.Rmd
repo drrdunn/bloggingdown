@@ -89,7 +89,7 @@ my_data <- readRDS(ga_data.rds) #reads data
 
 ## Data Analysis {#test2}
 
-1.  Sessions by Device Category
-2.  
-3.  
+### Sessions by Device Category
+
+
 
