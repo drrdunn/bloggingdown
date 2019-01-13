@@ -18,10 +18,13 @@ enableEmoji = true
     name = "Blog"
     url = ""
 [[menu.main]]
-    name = "Twitter"
-    pre = "fa-twitter"
+    name = ""
+    identifier = "twitter"
+    pre = "<i class='fab fa-twitter fa-lg'></i>"
     url = "https://twitter.com/rimadunn404"
-    weight = 3
+    weight = 4
+
+
 [params]
     description = "My notes on user research and data analysis."
     customCss = ["css/font-awesome.min.css"]
