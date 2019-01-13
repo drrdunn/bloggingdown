@@ -24,6 +24,12 @@ enableEmoji = true
     url = "https://twitter.com/rimadunn404"
     weight = 4
 
+[[menu.main]]
+        name = ""
+        identifier = "linkedin"
+        pre = "<i class='fab fa-linkedin-in fa-lg'></i>"
+        url = ""
+        weight = 4
 
 [params]
     description = "My notes on user research and data analysis."
