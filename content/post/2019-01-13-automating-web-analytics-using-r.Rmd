@@ -14,8 +14,8 @@ tags: [web analytics]
 ### About this note 
 1.  Using googleAnalyticR package.
 2.  [Setting up.](#test1)
-3.  [Data analysis.](#test2)
-4.  References.
+3.  [Data Analysis.](#test2)
+6.  [References.](#test3)
 
 ## Setting up 
 
@@ -89,6 +89,7 @@ my_data <- readRDS(ga_data.rds) #reads data
 
 ## Data Analysis {#test2}
 
-### 1 Sessions by Device Category
-
+1.  Sessions by Device Category
+2.  
+3.  
 
