@@ -10,7 +10,7 @@ tags: [web analytics]
 ### About this note 
 1.  Using googleAnalyticR package.
 2.  Setting up.
-3.  Data analysis. 
+3.  [Data analysis.](#test2)
 4.  References.
 
 ## Setting up 
@@ -53,7 +53,7 @@ ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached 
 ```
 
 ### 3 Pulling data
- 
+
 ```r
 # for additional parameters, see ?google_analytics_4() 
 # anti_sample = TRUE will ensure we don't get sampled data
@@ -65,8 +65,10 @@ ga_data <- google_analytics(viewId = view_id,
 +                             anti_sample = TRUE)
 ```
 ### 3.1 Quick inspection of returned data
- 
+
 ```r
 # check returned data, not required but good
 head(ga_data)
 ```
+
+## Data Analysis {#test2}

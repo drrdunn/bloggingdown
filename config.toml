@@ -30,7 +30,7 @@ enableEmoji = true
         weight = 4
 
 [params]
-    description = "My notes on user research and data analysis."
+    description = "My notes on user research and data science."
     customCss = ["css/font-awesome.min.css"]
 
     # options for highlight.js (version, additional languages, and theme)
