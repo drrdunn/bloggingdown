@@ -84,12 +84,12 @@ head(ga_data)
 ```r
 saveRDS(ga_data, "ga_data.rds")  #saves data so that we don't call the API everytime
 
-my_data <- readRDS(ga_data.rds) #reads data
+my_data <- readRDS("ga_data.rds") #reads data
 ```
 
 ## Data Analysis {#test2}
 
 ### Sessions by Device Category
-
-
-
+```{r echo = FALSE}
+head(my_data)
+```
