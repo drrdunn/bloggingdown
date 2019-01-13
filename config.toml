@@ -19,10 +19,12 @@ enableEmoji = true
     url = ""
 [[menu.main]]
     name = "Twitter"
+    pre = "fa-twitter"
     url = "https://twitter.com/rimadunn404"
-
+    weight = 3
 [params]
     description = "My notes on user research and data analysis."
+    customCss = ["css/font-awesome.min.css"]
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
