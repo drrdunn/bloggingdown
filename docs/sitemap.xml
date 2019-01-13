@@ -13,12 +13,6 @@
   </url>
   
   <url>
-    <loc>/bloggingdown/</loc>
-    <lastmod>2019-01-12T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/bloggingdown/categories/</loc>
     <priority>0</priority>
   </url>
@@ -31,6 +25,12 @@
   
   <url>
     <loc>/bloggingdown/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/bloggingdown/</loc>
+    <lastmod>2019-01-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
