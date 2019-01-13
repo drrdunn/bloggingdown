@@ -7,6 +7,10 @@ categories: []
 tags: [web analytics]
 ---
 
+
+
+
+
 ### About this note 
 1.  Using googleAnalyticR package.
 2.  [Setting up.](#test1)
@@ -55,7 +59,7 @@ ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached 
 
 ```
 
-### 3 Pulling data
+### 3 Pull data
 
 ```r
 # for additional parameters, see ?google_analytics_4() 
@@ -67,11 +71,24 @@ ga_data <- google_analytics(viewId = view_id,
 +                             dimensions = c("date","deviceCategory"),
 +                             anti_sample = TRUE)
 ```
-### 3.1 Quick inspection of returned data
+### 3.1 Check returned data
 
 ```r
-# check returned data, not required but good
+# quick inspection of returned data
 head(ga_data)
+```
+### 3.2 Save data
+
+```r
+saveRDS(ga_data, "ga_data.rds")  #saves data so that we don't call the API everytime
+
+my_data <- readRDS(ga_data.rds) #reads data
 ```
 
 ## Data Analysis {#test2}
+
+Using data from Google Store
+
+### 1 Sessions by Device Category
+_Plotting sessions by device category on a line chart_
+

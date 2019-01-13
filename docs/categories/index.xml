@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on User research and data science</title>
-    <link>https://drrdunn.github.io/bloggingdown/categories/</link>
+    <link>/bloggingdown/categories/</link>
     <description>Recent content in Categories on User research and data science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     
-	<atom:link href="https://drrdunn.github.io/bloggingdown/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/bloggingdown/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

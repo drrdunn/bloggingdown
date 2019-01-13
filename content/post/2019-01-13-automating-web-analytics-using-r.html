@@ -57,8 +57,8 @@ ga_auth(token = &quot;.ga-httr-oauth&quot;)
 ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached token
 </code></pre>
 </div>
-<div id="pulling-data" class="section level3">
-<h3>3 Pulling data</h3>
+<div id="pull-data" class="section level3">
+<h3>3 Pull data</h3>
 <pre class="r"><code># for additional parameters, see ?google_analytics_4() 
 # anti_sample = TRUE will ensure we don&#39;t get sampled data
  
@@ -68,12 +68,23 @@ ga_data &lt;- google_analytics(viewId = view_id,
 +                             dimensions = c(&quot;date&quot;,&quot;deviceCategory&quot;),
 +                             anti_sample = TRUE)</code></pre>
 </div>
-<div id="quick-inspection-of-returned-data" class="section level3">
-<h3>3.1 Quick inspection of returned data</h3>
-<pre class="r"><code># check returned data, not required but good
+<div id="check-returned-data" class="section level3">
+<h3>3.1 Check returned data</h3>
+<pre class="r"><code># quick inspection of returned data
 head(ga_data)</code></pre>
+</div>
+<div id="save-data" class="section level3">
+<h3>3.2 Save data</h3>
+<pre class="r"><code>saveRDS(ga_data, &quot;ga_data.rds&quot;)  #saves data so that we don&#39;t call the API everytime
+
+my_data &lt;- readRDS(ga_data.rds) #reads data</code></pre>
 </div>
 </div>
 <div id="test2" class="section level2">
 <h2>Data Analysis</h2>
+<p>Using data from Google Store</p>
+<div id="sessions-by-device-category" class="section level3">
+<h3>1 Sessions by Device Category</h3>
+<p><em>Plotting sessions by device category on a line chart</em></p>
+</div>
 </div>
