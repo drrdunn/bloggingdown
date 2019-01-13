@@ -3,34 +3,45 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/bloggingdown/2019/01/12/something-hello/</loc>
+    <loc>https://drrdunn.github.io/bloggingdown/2019/01/13/automating-web-analytics-using-r/</loc>
+    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://drrdunn.github.io/bloggingdown/2019/01/12/something-hello/</loc>
     <lastmod>2019-01-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/bloggingdown/about/</loc>
+    <loc>https://drrdunn.github.io/bloggingdown/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/bloggingdown/categories/</loc>
+    <loc>https://drrdunn.github.io/bloggingdown/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/bloggingdown/post/</loc>
-    <lastmod>2019-01-12T00:00:00+00:00</lastmod>
+    <loc>https://drrdunn.github.io/bloggingdown/post/</loc>
+    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/bloggingdown/tags/</loc>
+    <loc>https://drrdunn.github.io/bloggingdown/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/bloggingdown/</loc>
-    <lastmod>2019-01-12T00:00:00+00:00</lastmod>
+    <loc>https://drrdunn.github.io/bloggingdown/</loc>
+    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://drrdunn.github.io/bloggingdown/tags/web-analytics/</loc>
+    <lastmod>2019-01-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,0 +1,72 @@
+---
+title: Automating Web Analytics Using R
+author: ''
+date: '2019-01-13'
+slug: automating-web-analytics-using-r
+categories: []
+tags: [web analytics]
+---
+
+### About this note 
+1.  Using googleAnalyticR package.
+2.  Setting up.
+3.  Data analysis. 
+4.  References.
+
+## Setting up 
+ 
+### 1 Install the following R packages
+ 
+```r
+# Install the following R packages for easier data pulling and wrangling.
+
+"googleAnalyticsR"   # to get GA data
+"tidyverse"          # must have, includes dplyr, ggplot2, and others
+"devtools"           # generally useful
+"stringr"            # handy string functions
+"lubridate"          # handy date and time functions
+"googleVis"          # useful for some visualizations
+"ggthemes"           # pretty plot themes
+"ggrepel"            # non-obstructive plot labels
+"scales"             # custom plot scales
+```
+
+### 1.2  Set the view ID and the date range
+ 
+```r
+# call and just replace that with a hardcoded value for the view ID. 
+# and the start and end date are currently set to choose the last 30 days, but can be hardcoded as well
+ 
+view_id <- Sys.getenv("GA_VIEW_ID")
+start_date <- Sys.Date() - 31        # 30 days back from yesterday
+end_date <- Sys.Date() - 1           # Yesterday
+```
+### 2 Authorise GA
+ 
+```r
+# will pop over to browser to give authenticate.
+ga_auth(token = ".ga-httr-oauth")
+
+# or
+ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached token
+
+```
+
+### 3 Pulling data
+ 
+```r
+# for additional parameters, see ?google_analytics_4() 
+# anti_sample = TRUE will ensure we don't get sampled data
+ 
+ga_data <- google_analytics(viewId = view_id,
++                             date_range = c(start_date, end_date),
++                             metrics = "sessions",
++                             dimensions = c("date","deviceCategory"),
++                             anti_sample = TRUE)
+```
+### 3.1 Quick inspection of returned data
+ 
+```r
+# check returned data, not required but good
+head(ga_data)
+```

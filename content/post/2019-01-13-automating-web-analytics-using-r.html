@@ -1,0 +1,71 @@
+---
+title: Automating Web Analytics Using R
+author: ''
+date: '2019-01-13'
+slug: automating-web-analytics-using-r
+categories: []
+tags: [web analytics]
+---
+
+
+
+<div id="about-this-note" class="section level3">
+<h3>About this note</h3>
+<ol style="list-style-type: decimal">
+<li>Using googleAnalyticR package.</li>
+<li>Setting up.</li>
+<li>Data analysis.</li>
+<li>References.</li>
+</ol>
+</div>
+<div id="setting-up" class="section level2">
+<h2>Setting up</h2>
+<div id="install-the-following-r-packages" class="section level3">
+<h3>1 Install the following R packages</h3>
+<pre class="r"><code># Install the following R packages for easier data pulling and wrangling.
+
+&quot;googleAnalyticsR&quot;   # to get GA data
+&quot;tidyverse&quot;          # must have, includes dplyr, ggplot2, and others
+&quot;devtools&quot;           # generally useful
+&quot;stringr&quot;            # handy string functions
+&quot;lubridate&quot;          # handy date and time functions
+&quot;googleVis&quot;          # useful for some visualizations
+&quot;ggthemes&quot;           # pretty plot themes
+&quot;ggrepel&quot;            # non-obstructive plot labels
+&quot;scales&quot;             # custom plot scales</code></pre>
+</div>
+<div id="set-the-view-id-and-the-date-range" class="section level3">
+<h3>1.2 Set the view ID and the date range</h3>
+<pre class="r"><code># call and just replace that with a hardcoded value for the view ID. 
+# and the start and end date are currently set to choose the last 30 days, but can be hardcoded as well
+ 
+view_id &lt;- Sys.getenv(&quot;GA_VIEW_ID&quot;)
+start_date &lt;- Sys.Date() - 31        # 30 days back from yesterday
+end_date &lt;- Sys.Date() - 1           # Yesterday</code></pre>
+</div>
+<div id="authorise-ga" class="section level3">
+<h3>2 Authorise GA</h3>
+<pre class="r"><code># will pop over to browser to give authenticate.
+ga_auth(token = &quot;.ga-httr-oauth&quot;)
+
+# or
+ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached token
+</code></pre>
+</div>
+<div id="pulling-data" class="section level3">
+<h3>3 Pulling data</h3>
+<pre class="r"><code># for additional parameters, see ?google_analytics_4() 
+# anti_sample = TRUE will ensure we don&#39;t get sampled data
+ 
+ga_data &lt;- google_analytics(viewId = view_id,
++                             date_range = c(start_date, end_date),
++                             metrics = &quot;sessions&quot;,
++                             dimensions = c(&quot;date&quot;,&quot;deviceCategory&quot;),
++                             anti_sample = TRUE)</code></pre>
+</div>
+<div id="quick-inspection-of-returned-data" class="section level3">
+<h3>3.1 Quick inspection of returned data</h3>
+<pre class="r"><code># check returned data, not required but good
+head(ga_data)</code></pre>
+</div>
+</div>
