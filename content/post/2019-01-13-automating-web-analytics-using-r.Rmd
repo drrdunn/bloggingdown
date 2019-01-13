@@ -17,6 +17,7 @@ tags: [web analytics]
       1.  Install packages
       2.  Authorise GA
       3.  Pull data
+      4.  Save data
 3.  [Data analysis.](#test2)
 4.  References.
 
@@ -87,8 +88,6 @@ my_data <- readRDS(ga_data.rds) #reads data
 
 ## Data Analysis {#test2}
 
-Using data from Google Store
-
 ### 1 Sessions by Device Category
-_Plotting sessions by device category on a line chart_
+
 
