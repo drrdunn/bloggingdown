@@ -14,14 +14,15 @@ tags: [web analytics]
 ### About this note 
 1.  Using googleAnalyticR package.
 2.  [Setting up.](#test1)
-      1.  Install packages
-      2.  Authorise GA
-      3.  Pull data
-      4.  Save data
 3.  [Data analysis.](#test2)
 4.  References.
 
 ## Setting up 
+
+1.  Install packages
+2.  Authorise GA
+3.  Pull data
+4.  Save data 
  
 ### 1 Install the following R packages {#test1}
  
