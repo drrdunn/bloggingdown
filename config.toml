@@ -12,11 +12,9 @@ enableEmoji = true
     post = "/:year/:month/:day/:slug/"
 
 [[menu.main]]
-    name = "About me"
+    name = "About"
     url = "/about/"
-[[menu.main]]
-    name = "Blog"
-    url = ""
+
 [[menu.main]]
     name = ""
     identifier = "twitter"
