@@ -1,95 +1,116 @@
 ---
-title: Automating Web Analytics Using R
+title: "Automating Web Analytics Using R"
 author: ''
 date: '2019-01-13'
 slug: automating-web-analytics-using-r
+tags: web analytics
 categories: []
-tags: [web analytics]
 ---
 
-
-
-
-
-### About this note 
-1.  Using googleAnalyticR package.
-2.  [Setting up.](#test1)
-3.  [Data Analysis.](#test2)
-6.  [References.](#test3)
-
-## Setting up 
-
-1.  Install packages
-2.  Authorise GA
-3.  Pull data
-4.  Save data 
- 
-### 1 Install the following R packages {#test1}
- 
-```r
-# Install the following R packages for easier data pulling and wrangling.
-
-"googleAnalyticsR"   # to get GA data
-"tidyverse"          # must have, includes dplyr, ggplot2, and others
-"devtools"           # generally useful
-"stringr"            # handy string functions
-"lubridate"          # handy date and time functions
-"googleVis"          # useful for some visualizations
-"ggthemes"           # pretty plot themes
-"ggrepel"            # non-obstructive plot labels
-"scales"             # custom plot scales
-```
-
-### 1.2  Set the view ID and the date range
- 
-```r
-# call and just replace that with a hardcoded value for the view ID. 
-# and the start and end date are currently set to choose the last 30 days, but can be hardcoded as well
- 
-view_id <- Sys.getenv("GA_VIEW_ID")
-start_date <- Sys.Date() - 31        # 30 days back from yesterday
-end_date <- Sys.Date() - 1           # Yesterday
-```
-### 2 Authorise GA 
- 
-```r
-# will pop over to browser to give authenticate.
-ga_auth(token = ".ga-httr-oauth")
-
-# or
-ga_auth(new_user = TRUE)  # forces new authorization, even if there is a cached token
-
-```
-
-### 3 Pull data
-
-```r
-# for additional parameters, see ?google_analytics_4() 
-# anti_sample = TRUE will ensure we don't get sampled data
- 
-ga_data <- google_analytics(viewId = view_id,
-+                             date_range = c(start_date, end_date),
-+                             metrics = "sessions",
-+                             dimensions = c("date","deviceCategory"),
-+                             anti_sample = TRUE)
-```
-### 3.1 Check returned data
-
-```r
-# quick inspection of returned data
-head(ga_data)
-```
-### 3.2 Save data
-
-```r
-saveRDS(ga_data, "ga_data.rds")  #saves data so that we don't call the API everytime
-
-my_data <- readRDS("ga_data.rds") #reads data
-```
 
 ## Data Analysis {#test2}
 
 ### Sessions by Device Category
-```{r echo = FALSE}
-head(my_data)
+```{r echo = FALSE, message = FALSE, eval = TRUE}
+library("googleAnalyticsR")
+library("googleAuthR")
+library("googleVis")
+library("tidyverse")
+library("magrittr")
+library("tidyr")
+
+# this is where our authentication token must live snug and warm.
+googleAuthR::gar_auth("~/Dropbox/Github/.httr-oauth")
+
+start_date <- "2016-01-01"
+end_date <- "2018-01-01"
+
+ga_data <- google_analytics(viewId = 91606028,
+                              date_range = c(start_date, end_date),
+                              metrics = c("sessions"),
+                              dimensions = c("date","deviceCategory", "medium"),
+                              anti_sample = TRUE)
+
+saveRDS(ga_data, "ga_data.rds")  #saves data so that we don't call the API everytime
+
+my_data <- readRDS("ga_data.rds") #reads data
+
+sessions_by_device <- ggplot(my_data, mapping = aes(x = date, y = sessions, colour = deviceCategory)) +
+  geom_line() +
+  theme_light()
+
+sessions_by_device
+
+
+sessions_by_medium <- ggplot(my_data, mapping = aes(x = medium, y = sessions)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  theme_light() +
+  theme(panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        panel.border = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks.y = element_blank())
+
+sessions_by_medium
+
+ga_data_totals <- my_data %>% 
+  group_by(medium, deviceCategory) %>% 
+  summarise(sessions = sum(sessions))
+
+medium_totals <- my_data %>% 
+  group_by(medium) %>% 
+  summarise(sessions = sum(sessions)) %>% 
+  arrange(-sessions)
+
+deviceCategory_totals <- my_data %>% 
+  group_by(deviceCategory) %>% 
+  summarise(sessions = sum(sessions)) %>% 
+  arrange(-sessions)
+
+my_data$medium <- factor(my_data$medium,
+                         levels = medium_totals$medium)
+my_data$deviceCategory <- factor(my_data$deviceCategory,
+                         levels = deviceCategory_totals$deviceCategory)
+
+ga_data_totals$medium <- factor(ga_data_totals$medium,
+                         levels = rev(medium_totals$medium))    # Reversing the factor order
+ga_data_totals$deviceCategory <- factor(ga_data_totals$deviceCategory,
+                         levels = deviceCategory_totals$deviceCategory)
+
+head(ga_data_totals)
+
+
+medium_by_device <- ggplot(ga_data_totals, mapping=aes(x = deviceCategory, y = medium)) +
+  geom_tile(aes(fill = sessions), colour = "grey30") +
+  geom_text(aes(label = format(sessions, big.mark = ","))) +
+  scale_fill_gradient(low = "white", high = "red") +    # Specify the gradient colors
+  guides(fill = FALSE) +                                 # Remove the legend
+  theme_light() +
+  theme(panel.grid = element_blank(),
+        panel.border = element_blank(),
+        axis.ticks = element_blank())
+
+medium_by_device
+
+
+
+gg_sparklines <- ggplot(ga_data, mapping=aes(x = date, y = sessions)) +
+  geom_line() +
+  facet_grid(medium ~ deviceCategory, switch = "y") +
+  theme_light() +
+  theme(panel.grid = element_blank(),
+        panel.border = element_rect(fill = NA, colour = "gray80"),
+        panel.background = element_blank(),
+        strip.background = element_blank(),
+        strip.text = element_text(colour = "black"),
+        strip.text.y = element_text(angle = 180, hjust = 1),
+        axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        axis.title.x = element_blank())
+
+gg_sparklines
+
+
+
 ```
