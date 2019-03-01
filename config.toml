@@ -32,7 +32,7 @@ enableEmoji = true
         [[menu.main]]
                 name = ""
                 identifier = "github"
-                pre = "<i class='fab fa-github-in fa-lg'></i>"
+                pre = "<i class='fab fa-github-alt fa-lg'></i>"
                 url = ""
                 weight = 4
 
