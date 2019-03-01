@@ -29,6 +29,13 @@ enableEmoji = true
         url = ""
         weight = 4
 
+        [[menu.main]]
+                name = ""
+                identifier = "github"
+                pre = "<i class='fab fa-github-in fa-lg'></i>"
+                url = ""
+                weight = 4
+
 [params]
     description = "My notes on user research and stats."
     customCss = ["css/font-awesome.min.css"]
