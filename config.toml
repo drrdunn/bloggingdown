@@ -1,7 +1,7 @@
 baseURL = "https://drrdunn.github.io/bloggingdown"
 publishDir = "docs"
 languageCode = "en-uk"
-title = "User research and data science"
+title = "User research and stats"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = ""
@@ -30,7 +30,7 @@ enableEmoji = true
         weight = 4
 
 [params]
-    description = "My notes on user research and data science."
+    description = "My notes on user research and stats."
     customCss = ["css/font-awesome.min.css"]
 
     # options for highlight.js (version, additional languages, and theme)
